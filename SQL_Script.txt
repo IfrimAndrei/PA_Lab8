@@ -1,0 +1,45 @@
+--Tables--
+CREATE TABLE `lab8`.`movies` (
+  `ID` INT NOT NULL,
+  `title` VARCHAR(20) NOT NULL,
+  `release_date` DATETIME NOT NULL,
+  `duration` INT NOT NULL,
+  `score` INT NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+
+CREATE TABLE `lab8`.`genres` (
+  `ID` INT NOT NULL,
+  `name` VARCHAR(20) NOT NULL,
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE,
+  PRIMARY KEY (`ID`));
+
+CREATE TABLE `lab8`.`junction` (
+  `ID_movie` INT NOT NULL,
+  `ID_genre` INT NOT NULL,
+  INDEX `ID_genre_idx` (`ID_genre` ASC) VISIBLE,
+  PRIMARY KEY (`ID_genre`, `ID_movie`),
+  CONSTRAINT `ID_movie`
+    FOREIGN KEY (`ID_movie`)
+    REFERENCES `lab8`.`movies` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `ID_genre`
+    FOREIGN KEY (`ID_genre`)
+    REFERENCES `lab8`.`genres` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+--Inserturi--
+
+INSERT INTO `lab8`.`movies` (`ID`, `title`, `release_date`, `duration`, `score`) VALUES ('1', 'Shrek', '2008-11-11', '90', '10');
+INSERT INTO `lab8`.`movies` (`ID`, `title`, `release_date`, `duration`, `score`) VALUES ('2', 'Cars', '2005-05-20', '120', '8.5');
+INSERT INTO `lab8`.`movies` (`ID`, `title`, `release_date`, `duration`, `score`) VALUES ('3', 'IT', '2004-03-05', '150', '6');
+
+INSERT INTO `lab8`.`genres` (`ID`, `name`) VALUES ('1', 'horror');
+INSERT INTO `lab8`.`genres` (`ID`, `name`) VALUES ('2', 'family');
+INSERT INTO `lab8`.`genres` (`ID`, `name`) VALUES ('3', 'action');
+
+INSERT INTO `lab8`.`junction` (`ID_movie`, `ID_genre`) VALUES ('1', '2');
+INSERT INTO `lab8`.`junction` (`ID_movie`, `ID_genre`) VALUES ('2', '3');
+INSERT INTO `lab8`.`junction` (`ID_movie`, `ID_genre`) VALUES ('3', '1');
