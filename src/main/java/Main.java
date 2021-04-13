@@ -6,10 +6,11 @@ public class Main {
         public static void main ( String[] args){
                 Database myDB = Database.getInstance();
                 
-                secondExample();
+                Example();
                 myDB.disconnect();
         }
-        public static void firstExample()
+
+        public static void Example()
         {
                 Database myDB = Database.getInstance();
                 MoviesDao dbMovies = new MoviesDao();
@@ -17,35 +18,14 @@ public class Main {
                 dbMovies.insert(exampleMovie);
 
                 myDB.commit();
-                System.out.println("Tables.Movie names after insertion");
-                for ( Movie m : dbMovies.getAll())
-                {
-                        System.out.println(m.getTitle());
-                }
-                dbMovies.delete( exampleMovie );
-                myDB.commit();
-                System.out.println("\nTables.Movie names after delete");
-                for ( Movie m : dbMovies.getAll())
-                {
-                        System.out.println(m);
-                }
-        }
-        public static void secondExample()
-        {
-                Database myDB = Database.getInstance();
-                MoviesDao dbMovies = new MoviesDao();
-                Movie exampleMovie = movieValue();
-                dbMovies.insert(exampleMovie);
-
-                myDB.commit();
-                System.out.println("Tables.Movie names after insertion");
+                System.out.println("Movie names after insertion");
                 for ( Movie m :  myDB.getMovies())
                 {
                         System.out.println(m);
                 }
                 dbMovies.delete( exampleMovie );
                 myDB.commit();
-                System.out.println("\nTables.Movie names after delete");
+                System.out.println("\nMovie names after delete");
                 for ( Movie m : myDB.getMovies())
                 {
                         System.out.println(m);
