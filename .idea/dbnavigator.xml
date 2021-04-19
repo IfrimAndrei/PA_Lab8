@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="880474c0-7710-4f30-bd8c-33b416d6afa4">
-        <schema name="lab8" object-types="function, dataset trigger, procedure, constraint, table, view, column, index" />
+        <schema name="lab8" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -39,11 +39,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="880474c0-7710-4f30-bd8c-33b416d6afa4" object-ref="schemas/lab8/tables/genres" />
-      <object connection-id="880474c0-7710-4f30-bd8c-33b416d6afa4" object-ref="schemas/lab8/tables/movies" />
-      <object connection-id="880474c0-7710-4f30-bd8c-33b416d6afa4" object-ref="schemas/lab8/tables/junction" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="880474c0-7710-4f30-bd8c-33b416d6afa4" />

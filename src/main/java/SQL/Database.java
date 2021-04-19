@@ -94,4 +94,36 @@ public class Database {
     }
 
 
+    public List<Actors> getActors( ) {
+        List<Actors> actors = new LinkedList<>();
+        sql = " SELECT * FROM actors";
+        try {
+            rs = stmt.executeQuery( sql );
+            while (rs.next()) {
+                Actors myActor = new Actors();
+                myActor.setId( rs.getInt( "ID" ) );
+                myActor.setName( rs.getString( "name" ) );
+                actors.add( myActor );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return actors;
+    }
+    public List<Directors> getDirectors( ) {
+        List<Directors> directors = new LinkedList<>();
+        sql = " SELECT * FROM directors";
+        try {
+            rs = stmt.executeQuery( sql );
+            while (rs.next()) {
+                Directors myDirector = new Directors();
+                myDirector.setId( rs.getInt( "ID" ) );
+                myDirector.setName( rs.getString( "name" ) );
+                directors.add( myDirector );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return directors;
+    }
 }

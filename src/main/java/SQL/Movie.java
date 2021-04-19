@@ -6,16 +6,36 @@ public class Movie {
     private String date;
     private int score;
     private int duration;
+    private String actors;
+    private String directors;
 
     @Override
     public String toString( ) {
-        return "Tables.Movie{" +
+        return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
                 ", score=" + score +
                 ", duration=" + duration +
+                ", actors='" + actors + '\'' +
+                ", directors='" + directors + '\'' +
                 '}';
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    public void setDirectors(String directors) {
+        this.directors = directors;
+    }
+
+    public String getActors( ) {
+        return actors;
+    }
+
+    public String getDirectors( ) {
+        return directors;
     }
 
     public int getId( ) {
