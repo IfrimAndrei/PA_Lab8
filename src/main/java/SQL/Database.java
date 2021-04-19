@@ -101,8 +101,9 @@ public class Database {
             rs = stmt.executeQuery( sql );
             while (rs.next()) {
                 Actors myActor = new Actors();
-                myActor.setId( rs.getInt( "ID" ) );
-                myActor.setName( rs.getString( "name" ) );
+                myActor.setActor_id( rs.getInt( "actor_id" ) );
+                myActor.setActor_name( rs.getString( "actor_name" ) );
+                myActor.setMovie_id( rs.getInt("movie_id") );
                 actors.add( myActor );
             }
         } catch (Exception e) {
@@ -117,8 +118,9 @@ public class Database {
             rs = stmt.executeQuery( sql );
             while (rs.next()) {
                 Directors myDirector = new Directors();
-                myDirector.setId( rs.getInt( "ID" ) );
-                myDirector.setName( rs.getString( "name" ) );
+                myDirector.setDirector_id( rs.getInt( "director_id" ) );
+                myDirector.setDirector_name( rs.getString( "director_name" ) );
+                myDirector.setMovie_id( rs.getInt("movie_id") );
                 directors.add( myDirector );
             }
         } catch (Exception e) {

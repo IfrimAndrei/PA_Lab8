@@ -16,7 +16,7 @@ class ActorsDao implements Dao<Actors>{
     public List<Actors> findById(int id){
         List<Actors> pickedActors = new LinkedList<>();
         for( Actors a : actors){
-            if( a.getId() == id )
+            if( a.getActor_id() == id )
                 pickedActors.add(a);
         }
         return pickedActors;
@@ -26,7 +26,7 @@ class ActorsDao implements Dao<Actors>{
     public List<Actors> findByName(String name){
         List<Actors> pickedActors = new LinkedList<>();
         for( Actors a : actors){
-            if( a.getName().equals( name ) )
+            if( a.getActor_name().equals( name ) )
                 pickedActors.add(a);
         }
         return pickedActors;
@@ -40,16 +40,17 @@ class ActorsDao implements Dao<Actors>{
     @Override
     public void insert(Actors actor) {
         actors.add(actor);
-        String command = " INSERT INTO `lab8`.`actors` (`ID`, `name`) VALUES ( "
-                + "'" + actor.getId() + "',"
-                + "'" + actor.getName() + "')"
+        String command = " INSERT INTO `lab8`.`actors` (`actor_id`, `movie_id`,'actor_name') VALUES ( "
+                + "'" + actor.getActor_id() + "',"
+                + "'" + actor.getMovie_id() + "',"
+                + "'" + actor.getActor_name() + "')"
                 ;
     }
 
     @Override
     public void delete(Actors actor) {
         actors.remove(actor);
-        String command = " DELETE FROM actors WHERE id='" + actor.getId() +"'";
+        String command = " DELETE FROM actors WHERE actor_id='" + actor.getActor_id() +"'";
         db.executeCommand(command);
     }
 }
